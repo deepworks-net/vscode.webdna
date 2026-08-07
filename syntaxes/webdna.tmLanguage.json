@@ -242,6 +242,95 @@
 					}]
 				}]
 			},{
+				"comment": "WebDNA WriteFile Context",
+				"begin": "(^[ \\t]+)?(?=\\[(?i:writefile)\\b(?!-))",
+				"beginCaptures": {
+					"1": {
+						"name": "punctuation.whitespace.embedded.leading.webdna"
+					}
+				},
+				"end": "(?!\\G)([ \\t]*$\\n?)?",
+				"endCaptures": {
+					"1": {
+						"name": "punctuation.whitespace.embedded.trailing.webdna"
+					}
+				},
+				"patterns": [{
+					"begin": "(\\[)((?i:writefile))\\b",
+					"beginCaptures": {
+						"0": {
+							"name": "meta.tag.metadata.writefile.start.webdna"
+						},
+						"1": {
+							"name": "punctuation.definition.tag.begin.webdna"
+						},
+						"2": {
+							"name": "entity.name.tag.webdna"
+						}
+					},
+					"end": "(/)((?i:writefile))(\\])",
+					"endCaptures": {
+						"0": {
+							"name": "meta.tag.metadata.writefile.end.webdna"
+						},
+						"1": {
+							"name": "punctuation.definition.tag.begin.webdna"
+						},
+						"2": {
+							"name": "entity.name.tag.webdna"
+						},
+						"3": {
+							"name": "punctuation.definition.tag.end.webdna"
+						}
+					},
+					"patterns": [{
+						"begin": "\\G",
+						"end": "(?=/)",
+						"patterns": [{
+							"begin": "(\\s|&)(?i:(file|secure))(?![\\w:-])",
+							"beginCaptures": {
+								"1": {
+									"name": "variable.parameter.and.webdna"
+								},
+								"2": {
+									"name": "variable.parameter.webdna"
+								}
+							},
+							"comment": "WebDNA parameters",
+							"end": "(?=\\s*+[^=\\s])",
+							"name": "meta.parameter.$2.webdna",
+							"patterns": [
+								{ "include": "#parameter-interior" }								
+							]
+						},{
+							"include": "#webdna"
+						},{
+							"begin": "(\\])",
+							"name": "meta.embedded.context.writefile.webdna",
+							"beginCaptures": {
+								"0": {
+									"name": "meta.tag.metadata.writefile.start.webdna"
+								},
+								"1": {
+									"name": "punctuation.definition.tag.end.webdna"
+								}
+							},
+							"end": "((\\[))(?=/(?i:writefile))",
+							"endCaptures": {
+								"0": {
+									"name": "meta.tag.metadata.writefile.end.webdna"
+								},
+								"1": {
+									"name": "punctuation.definition.tag.begin.webdna"
+								}
+							},
+							"patterns": [{
+								"include": "#webdna"
+							}]
+						}]
+					}]
+				}]
+			},{
 				"comment": "WebDNA AppleScript Context",
 				"begin": "(^[ \\t]+)?(?=\\[(?i:applescript)\\b(?!-))",
 				"beginCaptures": {
@@ -4127,7 +4216,7 @@
 						"name": "punctuation.separator.key-value.webdna"
 					}
 				},
-				"end": "(?<=[^\\s=])(?=&|\\])",
+				"end": "(?=&|\\])",
 				"patterns": [
 					{ "include": "#webdna" }
 				]
@@ -4751,7 +4840,7 @@
 										"name": "punctuation.separator.key-value.webdna"
 									}
 								},
-								"end": "(?<=[^\\s=])(?=&|\\])",
+								"end": "(?=&|\\])",
 								"patterns": [
 									{ "include": "#webdna" },								
 									{ "include": "source.sql" }	

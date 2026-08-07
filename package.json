@@ -2,7 +2,7 @@
     "name": "webdna",
     "displayName": "WebDNA",
     "description": "WebDNA File",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "publisher": "Deepworks",
     "repository": "https://github.com/danielgreyio/webdna-vscode",
     "engines": {

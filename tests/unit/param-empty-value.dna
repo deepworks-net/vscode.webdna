@@ -1,0 +1,4 @@
+[!] SYNTAX TEST "source.webdna"
+[appendfile secure=&file=x.db]hi[/appendfile]
+[!]                ^ variable.parameter.and.webdna
+[!]                 ^^^^ variable.parameter.webdna

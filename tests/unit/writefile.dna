@@ -1,0 +1,5 @@
+[!] SYNTAX TEST "source.webdna"
+[writefile file=out.db]Hello [thisurl][/writefile]
+[!]        ^^^^ variable.parameter.webdna
+[!]                    ^^^^^ meta.embedded.context.writefile.webdna
+[!]                           ^^^^^^^ support.function.webdna

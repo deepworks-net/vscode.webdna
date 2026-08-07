@@ -180,7 +180,7 @@ Syntax Highlighting for WebDNA consists of a few components that each tag has: t
 | Wait                  | ✗        | ✗        | N/A      |
 | WaitForFile           | ✗        | ✗        | ✗        |
 | WebServer             | ✓        | N/A       | N/A      |
-| WriteFile             | ✗        | ✗        | ✗        |
+| WriteFile             | ✓        | ✓        | ✓        |
 | XMLNode               | ✗        | ✗        | ✗        |
 | XMLNodes              | ✗        | ✗        | ✗        |
 | XMLNodesAttributes    | ✗        | ✗        | ✗        |

@@ -1,0 +1,24 @@
+name: Grammar Tests
+
+# Tests the WebDNA TextMate grammar as shipped in this plugin, using the same
+# fixtures (tests/) and shared runner (scripts/run-grammar-tests.sh) that the
+# GitLab source uses — here pointed at the plugin's own grammar (syntaxes/).
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+
+jobs:
+  grammar-tests:
+    name: Test grammar via the plugin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install test runner
+        run: npm install -g vscode-tmgrammar-test@0.1.3
+      - name: Run grammar tests (unit + snapshot)
+        run: GRAMMAR=syntaxes/webdna.tmLanguage.json bash scripts/run-grammar-tests.sh
